@@ -1,6 +1,9 @@
 #!/bin/sh
-# 20120922 WLNET Networks
+#######################################
+# VPN EXception Tool
 # Adds a static route to access the printer in the ADC lab at the University of Washington while on a VPN.
+# Last Updated: 2013-01-28
+#######################################
 
 PRINTER_SUBNET="172.28.244.4/32"
 ME=$(/sbin/ip route | grep -E "default via (.*) dev .*" | awk '{print $3}');
