@@ -1,0 +1,16 @@
+#!/bin/sh
+# 20120922 WLNET Networks
+# Adds a static route to access the printer in the ADC lab at the University of Washington while on a VPN.
+
+PRINTER_SUBNET="172.28.244.4/32"
+ME=$(/sbin/ip route | grep -E "default via (.*) dev .*" | awk '{print $3}');
+
+if [ "$2" = "vpn-up" ]; then
+    /sbin/ip route add $PRINTER_SUBNET via $ME dev p1p1
+fi
+
+if [ "$2" = "vpn-down" ]; then
+    /sbin/ip route del $PRINTER_SUBNET via $ME dev p1p1
+fi
+
+exit 0
