@@ -6,14 +6,16 @@
 #######################################
 
 PRINTER_SUBNET="172.28.244.4/32"
+INTERFACE_NAME="p1p1"
+
 ME=$(/sbin/ip route | grep -E "default via (.*) dev .*" | awk '{print $3}');
 
 if [ "$2" = "vpn-up" ]; then
-    /sbin/ip route add $PRINTER_SUBNET via $ME dev p1p1
+    /sbin/ip route add $PRINTER_SUBNET via $ME dev $INTERFACE_NAME
 fi
 
 if [ "$2" = "vpn-down" ]; then
-    /sbin/ip route del $PRINTER_SUBNET via $ME dev p1p1
+    /sbin/ip route del $PRINTER_SUBNET via $ME dev $INTERFACE_NAME
 fi
 
 exit 0
