@@ -1,6 +1,6 @@
 #!/bin/sh
 #######################################
-# VPN EXception Tool
+# VPN Exception Tool
 # Adds a static route to access the printer in the ADC lab at the University of Washington while on a VPN.
 # Last Updated: 2013-01-28
 #######################################
